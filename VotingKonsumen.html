@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wujudkan Gayamu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .hero .heading {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero .heading span {
+            color: #ff6347;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .ideas-section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .ideas {
+            width: 45%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-pic {
+            margin-right: 10px;
+        }
+
+        .profile-pic img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .vote-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6347;
+            color: white;
+            cursor: pointer;
+        }
+
+        .vote-button:hover {
+            background-color: #ff4500;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer form {
+            margin-top: 20px;
+        }
+
+        .feedback-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        }
+
+        footer textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        resize: none;
+        }
+
+        footer button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ff6347;
+        color: white;
+        cursor: pointer;
+        height: 40px; /* Sesuaikan tinggi dengan textarea */
+        margin-top: 10px; /* Sesuaikan margin agar sejajar dengan bagian atas textarea */
+        }
+
+        footer button:hover {
+        background-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo" width="50" height="50">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Voting</a></li>
+                <li><a href="#">Katalog</a></li>
+                <li><a href="#">Masuk</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1 class="heading">Wujudkan <span>Gayamu</span></h1>
+        <img src="BannerVoting.jpeg" alt="Banner Image" class="hero-image">
+    </section>
+    
+    <section class="content">
+        <div class="ideas-section">
+            <div class="ideas terpopuler">
+                <h2>TERPOPULER</h2>
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Kemeja kasual lengan panjang dengan motif batik modern untuk pria</p>
+                    <button class="vote-button">Vote</button>
+                </div>
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Celana kulot motif bunga untuk tampilan kasual yang segar dan feminin</p>
+                    <button class="vote-button">Vote</button>
+                </div>
+            </div>
+            
+            <div class="ideas terbaru">
+                <h2>TERBARU</h2>
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Gaun midi berbahan linen yang nyaman dan stylish untuk acara semi-formal</p>
+                    <button class="vote-button">Vote</button>
+                </div>
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Blazer pria berbahan linen ringan dengan potongan slim fit untuk tampilan kasual yang rapi</p>
+                    <button class="vote-button">Vote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <form action="#" method="post">
+                <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Masukkan ide, saran, atau komentar Anda di sini..."></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const voteButtons = document.querySelectorAll('.vote-button');
+
+            voteButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('Terima kasih atas voting Anda!');
+                    // Tambahkan logika untuk menangani voting, misalnya, kirim data ke server.
+                });
+            });
+        });
+    </script>
+</body>
+</html>

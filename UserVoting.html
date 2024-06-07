@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Gill 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .IdeaVoting {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            background-color: #ffe2e2; /* Ganti nilai ini dengan warna background yang diinginkan */
+        }
+        .IdeaVoting .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 80%;
+        }
+        .IdeaVoting .row form {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(233, 202, 202, 0.1);
+            background: #b88469;
+            border-radius: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .IdeaVoting .row .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .IdeaVoting .row .image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+        .IdeaVoting .row form .heading {
+            position: right;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-5%);
+            background: #b88469;
+            padding: 0 10px;
+            color: #000;
+            font-size: 2rem;
+        }
+        .IdeaVoting .row form .box {
+            padding: 10px;
+            font-size: 1rem;
+            color: #333;
+            text-transform: none;
+            border: 1px solid rgba(173, 102, 102, 0.1);
+            border-radius: 15px;
+            margin: .7rem 0;
+            width: 100%;
+        }
+        .IdeaVoting .row form .box:focus {
+            border-color: var(--pink);
+        }
+        .IdeaVoting .row form textarea {
+            height: 5rem;
+            resize: none;
+        }
+        .IdeaVoting .row form .btn {
+            align-self: flex-end;
+            padding: 10px 40px;
+            font-size: 1.2rem;
+            background-color: #e4816f;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .IdeaVoting .row form .btn:hover {
+            background-color: #a37665;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .logo img {
+            width: 100px; /* Adjust the size of the logo as needed */
+            height: auto;
+        }
+        .logo-text {
+            position: absolute; /* Teks akan ditempatkan secara absolut */
+            top: 25px; /* Jarak dari atas */
+            left: 100px; /* Jarak dari kiri (sesuaikan sesuai dengan kebutuhan) */
+            font-size: 25px; /* Ukuran teks */
+            color: #333; /* Warna teks */
+            font-weight: bold; /* Ketebalan teks */
+        }
+        .navbar {
+            position: absolute;
+            top: 50px; /* Menurunkan posisi navbar */
+            right: 50px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin-right: 50px;
+        }
+
+        .navbar ul li:last-child {
+            margin-right: 80px; /* Menghilangkan margin kanan pada elemen terakhir */
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .navbar ul li a.highlighted {
+            color: #ff7f7f; /* Merubah warna menjadi merah (#ff0000) */
+        }
+        .content {
+            margin-top: 20px; /* Jarak antara content dengan elemen di atasnya */
+        }
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .ideas-section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .ideas {
+            width: 45%;
+        }
+        .card {
+            background-color: #e0e0e0;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-pic {
+            margin-right: 10px;
+        }
+
+        .profile-pic img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .vote-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6347;
+            color: white;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        .vote-button:hover {
+            background-color: #ff4500;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <section class="IdeaVoting" id="IdeaVoting">
+        <div class="navbar">
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#" class="highlighted">Voting</a></li>
+                <li><a href="#">Katalog</a></li>
+                <li><a href="#">Masuk</a></li>
+            </ul>
+        </div>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+            <span class="logo-text">Merchantry</span>
+        </div>
+        <div class="row">
+            <div class="image">
+                <img src="FotoVoting.png" alt="">
+            </div>
+        <div class="WujudkanGayamu">
+            <img src="WujudkanGayamu.png" alt="">
+        </div>
+
+            <form action="">
+                <h1 class="heading">Wujudkan <span>Gayamu!</span></h1>
+                <input type="text" placeholder="Nama" class="box">
+                <input type="email" placeholder="Email" class="box">
+                <textarea name="" class="box" placeholder="Ide, Masukkan dan Saran" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="KIRIM" class="btn">
+            </form>
+        </div>
+    </section>
+    <section class="content">
+        <div class="ideas-section">
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Kemeja kasual lengan panjang dengan motif batik modern untuk pria</p>
+                    <button class="vote-button">Vote</button>
+                </div>
+                <div class="card">
+                    <div class="profile-pic"><img src="Profile.png" alt="Profile Pic"></div>
+                    <p>Celana kulot motif bunga untuk tampilan kasual yang segar dan feminim</p>
+                    <button class="vote-button">Vote</button>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const voteButtons = document.querySelectorAll('.vote-button');
+        
+                    voteButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            alert('Terima kasih atas voting Anda!');
+                            // Tambahkan logika untuk menangani voting, misalnya, kirim data ke server.
+                        });
+                    });
+                });
+            </script>
+</body>
+</html>
